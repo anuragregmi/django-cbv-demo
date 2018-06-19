@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotAllowed
+from django.http import HttpResponseNotAllowed
 
 
 class BaseView:
@@ -56,8 +56,3 @@ class BaseView:
 
     def _allowed_methods(self):
         return [m.upper() for m in self.http_method_names if hasattr(self, m)]
-
-
-class TestView(BaseView):
-    def get(self, request):
-        return HttpResponse("Hello World")
